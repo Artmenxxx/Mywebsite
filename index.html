@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="static/style/style.css">
     <meta charset="UTF-8">
-    <title>LIFECOMPvers2.0</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>#1 - Pixel Art Generator | AsmrProg</title>
 </head>
+
 <body>
-    <div class="card-container">
-        <button class="card" onclick="showSection('servise')">
-            <img src="#" alt="Услуги">   <!--Добавить сюда картинку связанных с услуг либо придумать самому -->
-                <p>Услуги</p> <!--Данный код отвечает за услуги которые будут на самом сайте-->
-         </button>
-            <button class="card" onclick="showSection('phone')">
-                <img src="#" alt=Контакты>
-                <p>Телефон</p>
-            </button>
-        <button class="card" onclick="showSection('reviews')">
-            <img src="#" alt="Отзывы">
-            <p>Отзывы</p>
-        </button>
-        <button class="card" onclick="showSection('contact')">
-            <img src="#" alt="Контакты">
-            <p>Контакты</p>
-        </button>
+
+    <div class="wrapper">
+        <div class="options">
+            <div class="opt-wrapper">
+                <div class="slider">
+                    <label for="width-range">Grid Width</label>
+                    <input type="range" id="width-range" min="1" max="35">
+                    <span id="width-value">00</span>
+                </div>
+                <div class="slider">
+                    <label for="height-range">Grid Height</label>
+                    <input type="range" id="height-range" min="1" max="35">
+                    <span id="height-value">00</span>
+                </div>
+            </div>
+
+            <div class="opt-wrapper">
+                <button id="submit-grid">Create Grid</button>
+                <button id="clear-grid">Clear Grid</button>
+                <input type="color" id="color-input">
+                <button id="erase-btn">Erase</button>
+                <button id="paint-btn">Paint</button>
+            </div>
+
+        </div>
+        <div class="container"></div>
     </div>
 
 
 
 
-
-
-
-
-
-<script src="static/JS/JavaScript.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

@@ -1,83 +1,197 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: monospace;
-}
-
 body{
-    background-color: #43a047;
+    margin:0;
+    padding:0;
+    background: black;
 }
-
-.wrapper{
-    background-color: #fff;
-    width: 80vmin;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    padding: 40px 20px;
-    border-radius: 8px;
+.conteiner-Lifecomp{
+    z-index: 0;
 }
-
-label{
-    display: block;
-}
-
-span{
-    position: relative;
-    font-size: 22px;
-    bottom: -1px;
-}
-
-.opt-wrapper{
+.container-block{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
-    gap: 10px;
+    padding: 20px;
+}
+.container-p {
+    color: #FFFFFF;
+    font-family:"Cooper Black","Magneto";
+    font-size: 25px;
+}
+/* container-icons{ */
+
+/* } */
+
+.line1 {
+    border: 0;
+    margin: 5px 0;
+    height: 5px;
+    background: linear-gradient(90deg, #00bfff, #8a2be2, #ff69b4);
+    box-shadow: 0 0 10px #00bfff, 0 0 20px #8a2be2, 0 0 30px #ff69b4;
+}
+/* Фон корпуса */
+.case-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/foto/video-card.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    z-index: 1; /* чтобы фон был под вентилятором */
 }
 
-button{
-    background-color: #43a047;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    color: #fff;
-}
-
-input[type="color"]{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: transparent;
-    width: 70px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="color"]::-webkit-color-swatch{
-    border-radius: 8px;
-    border: 4px solid #000;
-}
-input[type="color"]::-moz-color-swatch{
-    border-radius: 8px;
-    border: 4px solid #000;
-}
-
-.gridCol{
-    height: 1em;
-    width: 1em;
-    border: 1px solid #ddd;
-}
-
-.gridRow{
+/* Контейнер видеокарты */
+.gpu-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; 
+    margin-top: 20px;
+    position: relative;
 }
 
-@media only screen and (max-width: 768px){
-    .gridCol{
-        height: 0.8em;
-        width: 0.8em;
+/* Корпус видеокарты */
+.gpu-body {
+    width: 260px; 
+    height: 150px; 
+    background-color: transparent;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+   
+}
+
+/* Вентилятор */
+.fan {
+    width: 140px; 
+    height: 140px;
+    background-color: transparent; 
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+    top: -10px;
+    margin-right: -15px ;
+}
+
+/* Лопасти вентилятора */
+.fan-blades {
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/foto/cooler.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: spin 400ms linear infinite; 
+    border-radius: 50%;
+}
+
+/* Анимация вращения */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    z-index: 98;
+    margin: 15px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 3px solid #1cec59;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: transform 0.3s;
+    outline: none;
+    box-shadow: 0 0 10px 2px #1cec59;
+}
+
+.card img {
+    width: 120px;
+    height: 80px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card p {
+    font-size: 20px;
+    margin: 10px 0 0;
+    color: #FFFFFF;
+    background-color: #51da57;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        padding: 150px 100px;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 425px) {
+    .card {
+        padding: 20px 40px;
+        font-size: 35px;
+    }
+}
+
+
+
+.line2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #00bfff, #32cd32, #f60e80); /* голубой, зеленый, розовый */
+    box-shadow: 0 0 10px #00bfff, 0 0 20px #32cd32, 0 0 30px #d81678;
+    z-index: 100; /* Чтобы линия была поверх всего остального контента */
+}
+
+
+@media (max-width: 768px) {
+    .container-block {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-p {
+        font-size: 18px;
+    }
+    .conteiner-Lifecomp img {
+        width: 200px;
+        height: auto;
+    }
+    .container-icons img {
+        width: 40px;
+        height: 40px;
+    }
+    .line2 {
+
     }
 }
